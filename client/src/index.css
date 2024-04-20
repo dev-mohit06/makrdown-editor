@@ -1,0 +1,155 @@
+/* ========== FONTS ========== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@font-face {
+    font-family: "Dank Mono";
+    src: url("./assets/fonts/dank-mono.otf") format("opentype");
+}
+
+/* ========== VARIABLES ======== */
+:root {
+    --bg-color: #E8E8E8;
+    --preview-bg-color: #ffffff8d;
+    --editor-bg-color: #222;
+    --editor-header-text-color: #1E1F24;
+    --editor-text-color: #fff;
+    --editor-header-color: #E8E9EA;
+}
+
+/* ========== RESET ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Dank Mono", monospace;
+    background-color: var(--bg-color);
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 15px;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.editor {
+    background-color: var(--editor-bg-color);
+    color: var(--editor-text-color);
+    border-radius: 25px;
+    margin: 20px;
+    position: relative;
+}
+
+.editor__header {
+    font-family: "Poppins", sans-serif;
+    margin-right: .3rem;
+    margin-left: .3rem;
+    margin-top: .3rem;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    position: static;
+    top: 0;
+    background-color: var(--editor-header-color);
+    color: var(--editor-header-text-color);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.editor__header h1 {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.editor__header img{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.editor__header .actions{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.editor__header img{
+    transition:  .5s all;
+}
+
+.editor__header img:hover{
+    transform: scale(1.1);
+}
+
+.editor__body {
+    padding: 1rem;
+    height: calc(100vh - 100px);
+}
+
+.editor textarea{
+    font-family: "Dank Mono", monospace;
+    background-color: var(--editor-bg-color);
+    border-radius: 10px;
+    /* padding: .5rem; */
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    font-size: 1.2rem;
+    color: var(--editor-text-color);
+}
+
+.preview {
+    font-family: "Poppins", sans-serif;
+    background-color: var(--preview-bg-color);
+    /* color: var(--editor-text-color); */
+    border-radius: 25px;
+    margin: 20px;
+}
+
+.pointer-none{
+    pointer-events: none;
+}
+
+.preview__body{
+    padding: 1rem 1rem 0rem 2rem;
+    height: calc(100vh - 100px);
+    /* overflow-y: auto; */
+    overflow: scroll;
+}
+
+@media screen and (max-width: 979px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .editor{
+        margin: 0px 0px 10px 0px;
+        height: 50vh;
+    }
+
+    .editor__body{
+        height: calc(50vh - 100px);
+    }
+
+    .editor textarea{
+        height: calc(50vh - 100px);
+    }
+
+    .preview{
+        margin: 10px 0px 0px 0px;
+        height: 50vh;
+    }
+
+    .preview__body{
+        padding: 1rem 1rem 0rem 2rem;
+        height: calc(50vh - 80px);
+    }
+}
